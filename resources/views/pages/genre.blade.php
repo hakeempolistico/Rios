@@ -30,6 +30,7 @@
                   <tr>
                       <th width="10%">Id</th>
                       <th>Name</th>
+                      <th width="10%">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,6 +38,12 @@
                   <tr>
                     <td>{{$genre->id}}</td>
                     <td>{{$genre->genre_name}}</td>
+                    <td>
+                      <center>
+                        <button type="button" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit"></i></button>
+                        <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa fa-remove"></i></button>
+                      </center>
+                    </td>
 
                   </tr>
                   @endforeach
