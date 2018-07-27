@@ -17,43 +17,43 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li class="@if($title=='Dashboard') active @endif ">
             <a href="./dashboard">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li class="@if($title=='Genres') active @endif">
             <a href="./genre">
               <i class="nc-icon nc-tag-content"></i>
-              <p>Genre</p>
+              <p>Genres</p>
             </a>
           </li>
-          <li>
+          <li class="@if($title=='Authors') active @endif">
             <a href="./authors">
               <i class="nc-icon nc-ruler-pencil"></i>
               <p>Authors</p>
             </a>
           </li>
-          <li>
+          <li class="@if($title=='Library Sections') active @endif">
             <a href="./sections">
               <i class="nc-icon nc-tile-56"></i>
               <p>Library Sections</p>
             </a>
           </li>
-          <li>
+          <li class="@if($title=='Books') active @endif">
             <a href="./books">
               <i class="nc-icon nc-book-bookmark"></i>
               <p>Books</p>
             </a>
           </li>
-          <li>
+          <li class="@if($title=='Book Issues') active @endif">
             <a href="./issue">
               <i class="nc-icon nc-box-2"></i>
-              <p>Book Issue</p>
+              <p>Book Issues</p>
             </a>
           </li>
-          <li>
+          <li class="@if($title=='Members') active @endif">
             <a href="./members">
               <i class="nc-icon nc-badge"></i>
               <p>Registered Members</p>

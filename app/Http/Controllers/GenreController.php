@@ -16,8 +16,8 @@ class GenreController extends Controller
     public function index()
     {
         $data = array(
-            'title' => 'Genre',
-            'genre' => Genre::all()
+            'title' => 'Genres',
+            'genres' => Genre::all()
         );
         return view('pages.genre')->with($data);
     }   
