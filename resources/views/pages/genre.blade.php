@@ -35,17 +35,17 @@
                 </thead>
                 <tbody>
                   @foreach($genres as $genre)
-                  <tr>
-                    <td>{{$genre->id}}</td>
-                    <td>{{$genre->genre_name}}</td>
-                    <td>
-                      <center>
-                        <button type="button" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit"></i></button>
-                        <button type="button" class="btn btn-sm btn-outline-danger"><i class="fa fa-remove"></i></button>
-                      </center>
-                    </td>
+                    <tr>
+                      <td>{{$genre->id}}</td>
+                      <td>{{$genre->genre_name}}</td>
+                      <td>
+                        <center>
+                          <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></button>
+                          <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-remove"></i></button>
+                        </center>
+                      </td>
 
-                  </tr>
+                    </tr>
                   @endforeach
                 </tbody>
             </table>
