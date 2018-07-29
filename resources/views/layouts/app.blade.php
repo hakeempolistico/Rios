@@ -29,7 +29,6 @@
     <div class="main-panel">
       <!-- Navbar -->
       @include('layouts.navbar')
-      
       @yield('content')
     </div>
 

@@ -12,8 +12,8 @@
 */
 
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/genre', 'GenreController@index');
+Route::get('/genres', 'GenreController@index');
 
 Route::resource('dashboard', 'DashboardController');
-Route::resource('genre', 'GenreController');
+Route::resource('genres', 'GenreController');
 

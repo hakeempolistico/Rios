@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="@if($title=='Genres') active @endif">
-            <a href="./genre">
+            <a href="./genres">
               <i class="nc-icon nc-tag-content"></i>
               <p>Genres</p>
             </a>

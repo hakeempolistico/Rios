@@ -92,7 +92,7 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category">Registered Members</p>
+                      <p class="card-category">Members</p>
                       <p class="card-title">{{$memberCount}}
                         <p>
                     </div>

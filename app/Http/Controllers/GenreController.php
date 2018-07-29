@@ -40,7 +40,16 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'genre' => 'required|unique:genres,genre_name'
+        ]);
+
+        //Create Genre
+        $genre = new Genre;
+        $genre->genre_name = $request->input('genre');
+        $genre->save();
+
+        return redirect('/genres')->with('success', 'Genre Created!');
     }
 
     /**
