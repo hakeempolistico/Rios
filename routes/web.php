@@ -25,3 +25,10 @@ Route::put('authors', 'AuthorsController@update');
 //Route::delete('genres/destroy', 'GenreController@destroy');
 Route::get('authors/{id}/destroy', 'AuthorsController@destroy');
 Route::resource('authors', 'AuthorsController');
+
+
+//SECTIONS ROUTING
+Route::put('sections', 'SectionsController@update');
+//Route::delete('genres/destroy', 'GenreController@destroy');
+Route::get('sections/{id}/destroy', 'SectionsController@destroy');
+Route::resource('sections', 'SectionsController');

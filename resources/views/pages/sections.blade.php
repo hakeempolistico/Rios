@@ -36,17 +36,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($authors as $author)
+                  @foreach($sections as $section)
                     <tr>
-                      <td>{{$author->id}}</td>
-                      <td>{{$author->name}}</td>
+                      <td>{{$section->id}}</td>
+                      <td>{{$section->section_name}}</td>
                       <td>
                         <center>
                           <button type="button" class="btn btn-sm btn-primary btn-edit" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
                           <button type="button" class="btn btn-sm btn-danger btn-delete" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-remove"></i></button>
                         </center>
                       </td>
-
                     </tr>
                   @endforeach
                 </tbody>
@@ -67,7 +66,7 @@
               <h5 class="card-title" style="margin: 0px;">ADD</h5>
             </div>
             <div class="card-body">
-              {!! Form::open(['action' => 'AuthorsController@store', 'method' => 'POST']) !!}
+              {!! Form::open(['action' => 'SectionsController@store', 'method' => 'POST']) !!}
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -94,7 +93,7 @@
               <h5 class="card-title" style="margin: 0px;">EDIT</h5>
             </div>
             <div class="card-body">
-              {!! Form::open(['action' => ['AuthorsController@update', null], 'method' => 'PUT']) !!}
+              {!! Form::open(['action' => ['SectionsController@update', null], 'method' => 'PUT']) !!}
                 <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
@@ -182,7 +181,7 @@
   });
   $('#table').on('click', '.btn-delete', function () {
     var id = $(this).closest('tr').children('td:first').text();
-    $('.btn-confirm').attr("href", "/authors/"+id+"/destroy");
+    $('.btn-confirm').attr("href", "/sections/"+id+"/destroy");
     console.log(id);
   });
 
