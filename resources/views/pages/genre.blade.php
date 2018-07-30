@@ -23,7 +23,7 @@
       <div class="card">
         <div class="card-header">
           <button type="button" class="btn btn-outline-primary pull-right" data-toggle="modal" data-target="#addModal"><i class="nc-icon nc-simple-add"></i></button>
-          <h4 class="card-title">List of Genres</h4>
+          <h4 class="card-title">List of {{$title}}</h4>
         </div>
         <div class="card-body">
           <div class="table">
@@ -135,19 +135,14 @@
               <h5 class="card-title" style="margin: 0px;">DELETE</h5>
             </div>
             <div class="card-body">
-              <form>
-              {!! Form::open(['action' => ['GenreController@destroy', 9], 'method' => 'delete']) !!}
-                <div class="row">
-                  <h6 style="margin: 10px;">Are you sure you want to delete record?</h6>
+              <div class="row">
+                <h6 style="margin: 10px;">Are you sure you want to delete record?</h6>
+              </div>
+              <div class="row">
+                <div class="update ml-auto mr-auto">
+                  <a href="#" class="btn btn-danger btn-round btn-confirm"> DELETE </a>
                 </div>
-                <div class="row">
-                  <div class="update ml-auto mr-auto">
-
-                    {{Form::submit('DELETE', ['class' => 'btn btn-danger btn-round btn-confirm'])}}
-                  </div>
-                </div>
-              {!! Form::close() !!}
-               <a href="#" class="btn btn-danger btn-round btn-confirm"> DELETE </a>
+              </div>
             </div>
     </div>
   </div>

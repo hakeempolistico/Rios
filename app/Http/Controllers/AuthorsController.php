@@ -84,15 +84,15 @@ class AuthorsController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'genre' => 'required|unique:genres,genre_name'
+            'name' => 'required|unique:authors,name'
         ]);
 
         //Update Genre
-        $genre = Genre::find($request->input('id'));
-        $genre->genre_name = $request->input('genre');
-        $genre->save();
+        $author = Author::find($request->input('id'));
+        $author->name = $request->input('name');
+        $author->save();
 
-        return redirect('/genres')->with('success', 'Genre Edited!');    
+        return redirect('/authors')->with('success', 'Author Edited!');    
     }
 
     /**
@@ -103,13 +103,7 @@ class AuthorsController extends Controller
      */
     public function destroy($id)
     {
-        Genre::destroy($id); 
-        return redirect('/genres')->with('success', 'Item Has Been Delete');
-    }
-
-    public function soft_delete($id)
-    {
-        Genre::destroy($id); 
-        return redirect('/genres')->with('success', 'Item Has Been Delete');
+        Author::destroy($id); 
+        return redirect('/authors')->with('success', 'Author Has Been Delete');
     }
 }

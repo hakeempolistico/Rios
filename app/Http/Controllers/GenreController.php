@@ -106,10 +106,4 @@ class GenreController extends Controller
         Genre::destroy($id); 
         return redirect('/genres')->with('success', 'Item Has Been Delete');
     }
-
-    public function soft_delete($id)
-    {
-        Genre::destroy($id); 
-        return redirect('/genres')->with('success', 'Item Has Been Delete');
-    }
 }
