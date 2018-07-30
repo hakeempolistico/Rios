@@ -72,26 +72,26 @@
               <h5 class="card-title" style="margin: 0px;">ADD</h5>
             </div>
             <div class="card-body">
-              {!! Form::open(['action' => 'SectionsController@store', 'method' => 'POST']) !!}
+              {!! Form::open(['action' => 'BooksController@store', 'method' => 'POST']) !!}
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Book Title'])}}
+                      {{Form::text('book_title', '', ['class' => 'form-control', 'placeholder' => 'Book Title'])}}
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      {!! Form::select('size', $authors, 'hongkong', ['class' => 'form-control', 'placeholder' => 'Select Author']) !!}
+                      {!! Form::select('author_id', $authors, '', ['class' => 'form-control', 'placeholder' => 'Select Author']) !!}
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      {!! Form::select('size', $authors, 'hongkong', ['class' => 'form-control', 'placeholder' => 'Select Genre']) !!}
+                      {!! Form::select('genre_id', $genres, '', ['class' => 'form-control', 'placeholder' => 'Select Genre']) !!}
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      {!! Form::select('size', $authors, 'hongkong', ['class' => 'form-control', 'placeholder' => 'Select Section']) !!}
+                      {!! Form::select('section_id', $sections, '', ['class' => 'form-control', 'placeholder' => 'Select Section']) !!}
                     </div>
                   </div>
                 </div>

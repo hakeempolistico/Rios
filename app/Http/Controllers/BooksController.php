@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Book;
+use App\Author;
+use App\Genre;
+use App\Section;
 use Illuminate\Support\Facades\DB;
 
 class BooksController extends Controller
@@ -16,15 +19,29 @@ class BooksController extends Controller
      */
     public function index()
     {   
-        $authors = [
-            'Article' => 'Artikler lest', 
-            'Comment' => 'Antall kommentarer', 
-            'Thumb' => 'Antall "bli med"', 
-            'View' => 'Tid på døgnet'
-        ]; 
+        //AUTHORS
+        $selectAuthors = [];
+        foreach (Author::all() as $author) {
+            $selectAuthors[$author->id] = $author->author_name;
+        } 
+
+        //GENRE
+        $selectGenres = [];
+        foreach (Genre::all() as $genre) {
+            $selectGenres[$genre->id] = $genre->genre_name;
+        } 
+
+        //SECTION
+        $selectSections = [];
+        foreach (Section::all() as $section) {
+            $selectSections[$section->id] = $section->section_name;
+        } 
+
         $data = array(
             'title' => 'Books',
-            'authors' => $authors,
+            'authors' => $selectAuthors,
+            'genres' => $selectGenres,
+            'sections' => $selectSections,
             'books' => DB::table('books')
             ->select('books.id as id', 
                 'books.book_title as book_title', 
@@ -58,7 +75,22 @@ class BooksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'book_title' => 'required|unique:books,book_title',
+            'author_id' => 'required',
+            'genre_id' => 'required',
+            'section_id' => 'required',
+        ]);
+
+        //Create Genre
+        $book = new Book;
+        $book->book_title = $request->input('book_title');
+        $book->author_id = $request->input('author_id');
+        $book->genre_id = $request->input('genre_id');
+        $book->section_id = $request->input('section_id');
+        $book->save();
+
+        return redirect('/books')->with('success', 'Book Created!');
     }
 
     /**
