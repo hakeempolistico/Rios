@@ -26,9 +26,14 @@ Route::put('authors', 'AuthorsController@update');
 Route::get('authors/{id}/destroy', 'AuthorsController@destroy');
 Route::resource('authors', 'AuthorsController');
 
-
 //SECTIONS ROUTING
 Route::put('sections', 'SectionsController@update');
 //Route::delete('genres/destroy', 'GenreController@destroy');
 Route::get('sections/{id}/destroy', 'SectionsController@destroy');
 Route::resource('sections', 'SectionsController');
+
+//BOOKS ROUTING
+Route::put('books', 'BooksController@update');
+//Route::delete('genres/destroy', 'GenreController@destroy');
+Route::get('books/{id}/destroy', 'BooksController@destroy');
+Route::resource('books', 'BooksController');

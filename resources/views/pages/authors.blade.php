@@ -39,7 +39,7 @@
                   @foreach($authors as $author)
                     <tr>
                       <td>{{$author->id}}</td>
-                      <td>{{$author->name}}</td>
+                      <td>{{$author->author_name}}</td>
                       <td>
                         <center>
                           <button type="button" class="btn btn-sm btn-primary btn-edit" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
@@ -173,7 +173,7 @@
 <script src="/demo/demo.js"></script>
 <script>
 
-  $('#table').DataTable();
+  $('#table').DataTable({"pageLength": 25});
   $('#table').on('click', '.btn-edit', function () {
     var id = $(this).closest('tr').children('td:first').text();
     var name = $(this).closest('tr').children('td:nth-child(2)').text();

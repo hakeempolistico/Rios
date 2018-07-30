@@ -31,15 +31,21 @@
                 <thead>
                   <tr>
                       <th width="10%">Id</th>
-                      <th>Name</th>
+                      <th>Title</th>
+                      <th>Author</th>
+                      <th>Genre</th>
+                      <th>Section</th>
                       <th width="15%">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($sections as $section)
+                  @foreach($books as $book)
                     <tr>
-                      <td>{{$section->id}}</td>
-                      <td>{{$section->section_name}}</td>
+                      <td>{{$book->id}}</td>
+                      <td>{{$book->book_title}}</td>
+                      <td>{{$book->author_name}}</td>
+                      <td>{{$book->genre_name}}</td>
+                      <td>{{$book->section_name}}</td>
                       <td>
                         <center>
                           <button type="button" class="btn btn-sm btn-primary btn-edit" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
@@ -70,7 +76,22 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Author Name'])}}
+                      {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Book Title'])}}
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      {!! Form::select('size', $authors, 'hongkong', ['class' => 'form-control', 'placeholder' => 'Select Author']) !!}
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      {!! Form::select('size', $authors, 'hongkong', ['class' => 'form-control', 'placeholder' => 'Select Genre']) !!}
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      {!! Form::select('size', $authors, 'hongkong', ['class' => 'form-control', 'placeholder' => 'Select Section']) !!}
                     </div>
                   </div>
                 </div>

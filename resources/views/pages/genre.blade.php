@@ -173,7 +173,7 @@
 <script src="/demo/demo.js"></script>
 <script>
 
-  $('#genre-table').DataTable();
+  $('#genre-table').DataTable({"pageLength": 25});
   $('#genre-table').on('click', '.btn-edit', function () {
     var id = $(this).closest('tr').children('td:first').text();
     var name = $(this).closest('tr').children('td:nth-child(2)').text();
