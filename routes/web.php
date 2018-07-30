@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/genres', 'GenreController@index');
-
+//DASHBOARD ROUTING
 Route::resource('dashboard', 'DashboardController');
-Route::resource('genres', 'GenreController');
 
+//GENRES ROUTING
+Route::put('genres', 'GenreController@update');
+//Route::delete('genres/destroy', 'GenreController@destroy');
+Route::get('genres/{id}/destroy', 'GenreController@destroy');
+Route::resource('genres', 'GenreController');

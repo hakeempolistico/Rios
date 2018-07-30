@@ -81,9 +81,18 @@ class GenreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'genre' => 'required|unique:genres,genre_name'
+        ]);
+
+        //Update Genre
+        $genre = Genre::find($request->input('id'));
+        $genre->genre_name = $request->input('genre');
+        $genre->save();
+
+        return redirect('/genres')->with('success', 'Genre Edited!');    
     }
 
     /**
@@ -94,6 +103,13 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Genre::destroy($id); 
+        return redirect('/genres')->with('success', 'Item Has Been Delete');
+    }
+
+    public function soft_delete($id)
+    {
+        Genre::destroy($id); 
+        return redirect('/genres')->with('success', 'Item Has Been Delete');
     }
 }

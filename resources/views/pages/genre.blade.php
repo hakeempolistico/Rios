@@ -71,7 +71,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      {{Form::text('genre', '', ['type' => 'text', 'class' => 'form-control', 'placeholder' => 'Genre Name'])}}
+                      {{Form::text('genre', '', ['class' => 'form-control', 'placeholder' => 'Genre Name'])}}
                     </div>
                   </div>
                 </div>
@@ -94,25 +94,34 @@
               <h5 class="card-title" style="margin: 0px;">EDIT</h5>
             </div>
             <div class="card-body">
-              <form>
+              {!! Form::open(['action' => ['GenreController@update', null], 'method' => 'PUT']) !!}
                 <div class="row">
                   <div class="col-md-3">
                     <div class="form-group">
-                      <input id="edit-id" type="text" class="form-control" placeholder="ID" disabled required>
+                      {{Form::text('id', '', [
+                        'id' => 'edit-id',
+                        'class' => 'form-control', 
+                        'placeholder' => 'ID',
+                        'readonly'
+                        ])}}
                     </div>
                   </div>
                   <div class="col-md-9">
                     <div class="form-group">
-                      <input id="edit-name" type="text" class="form-control" placeholder="Genre Name" required>
+                      {{Form::text('genre', '', [
+                        'id' => 'edit-name',
+                        'class' => 'form-control', 
+                        'placeholder' => 'Genre Name'
+                        ])}}
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="update ml-auto mr-auto">
-                    <button type="submit" class="btn btn-primary btn-round">Update</button>
+                    {{Form::submit('Update', ['class' => 'btn btn-primary btn-round'])}}
                   </div>
                 </div>
-              </form>
+              {!! Form::close() !!}
             </div>
     </div>
   </div>
@@ -127,15 +136,18 @@
             </div>
             <div class="card-body">
               <form>
+              {!! Form::open(['action' => ['GenreController@destroy', 9], 'method' => 'delete']) !!}
                 <div class="row">
                   <h6 style="margin: 10px;">Are you sure you want to delete record?</h6>
                 </div>
                 <div class="row">
                   <div class="update ml-auto mr-auto">
-                    <button type="submit" class="btn btn-danger btn-round">Confirm</button>
+
+                    {{Form::submit('DELETE', ['class' => 'btn btn-danger btn-round btn-confirm'])}}
                   </div>
                 </div>
-              </form>
+              {!! Form::close() !!}
+               <a href="#" class="btn btn-danger btn-round btn-confirm"> DELETE </a>
             </div>
     </div>
   </div>
@@ -165,17 +177,23 @@
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="/demo/demo.js"></script>
 <script>
+
+  $('#genre-table').DataTable();
+  $('#genre-table').on('click', '.btn-edit', function () {
+    var id = $(this).closest('tr').children('td:first').text();
+    var name = $(this).closest('tr').children('td:nth-child(2)').text();
+    $('#edit-id').val(id);
+    $('#edit-name').val(name);
+  });
+  $('#genre-table').on('click', '.btn-delete', function () {
+    var id = $(this).closest('tr').children('td:first').text();
+    $('.btn-confirm').attr("href", "/genres/"+id+"/destroy");
+    console.log(id);
+  });
+
   $(document).ready(function() {
     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
     demo.initChartsPages();
-  });
-  
-  $('#genre-table').DataTable();
-  $(".btn-edit").click(function() {
-      var id = $(this).closest('tr').children('td:first').text();
-      var name = $(this).closest('tr').children('td:nth-child(2)').text();
-      $('#edit-id').val(id);
-      $('#edit-name').val(name);
   });
 </script>
 
