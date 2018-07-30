@@ -19,3 +19,9 @@ Route::put('genres', 'GenreController@update');
 //Route::delete('genres/destroy', 'GenreController@destroy');
 Route::get('genres/{id}/destroy', 'GenreController@destroy');
 Route::resource('genres', 'GenreController');
+
+//AUTHORS ROUTING
+Route::put('authors', 'AuthorsController@update');
+//Route::delete('genres/destroy', 'GenreController@destroy');
+Route::get('authors/{id}/destroy', 'AuthorsController@destroy');
+Route::resource('authors', 'AuthorsController');
