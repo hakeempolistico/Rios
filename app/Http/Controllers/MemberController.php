@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-use App\Section;
+use App\Member;
 
-class SectionsController extends Controller
+class MemberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class SectionsController extends Controller
     public function index()
     {
         $data = array(
-            'title' => 'Library Sections',
-            'sections' => Section::all()
+            'title' => 'Registered Members',
+            'members' => Member::all()
         );
-        return view('pages.sections')->with($data);
+        return view('pages.members')->with($data);
     }
 
     /**
@@ -41,15 +41,28 @@ class SectionsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:sections,section_name'
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'sex' => 'required',
+            'contact' => 'required',
         ]);
 
         //Create Genre
-        $section = new Section;
-        $section->section_name = $request->input('name');
-        $section->save();
+        $member = new Member;
+        $member->firstname = $request->input('firstname');
+        $member->lastname = $request->input('lastname');
+        $member->sex = $request->input('sex');
+        $member->contact = $request->input('contact');
+        $member->house_number = $request->input('house_number');
+        $member->street = $request->input('street');
+        $member->barangay = $request->input('barangay');
+        $member->city = $request->input('city');
+        $member->province = $request->input('province');
+        $member->email = $request->input('email');
+        $member->note = $request->input('note');
+        $member->save();
 
-        return redirect('/sections')->with('success', 'Section Created!');
+        return redirect('/members')->with('success', 'Member Created!');
     }
 
     /**
@@ -81,18 +94,9 @@ class SectionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:sections,section_name'
-        ]);
-
-        //Update Genre
-        $section = Section::find($request->input('id'));
-        $section->section_name = $request->input('name');
-        $section->save();
-
-        return redirect('/sections')->with('success', 'Section Edited!');    
+        //
     }
 
     /**
@@ -103,7 +107,6 @@ class SectionsController extends Controller
      */
     public function destroy($id)
     {
-        Section::destroy($id); 
-        return redirect('/sections')->with('success', 'Section Has Been Delete');
+        //
     }
 }

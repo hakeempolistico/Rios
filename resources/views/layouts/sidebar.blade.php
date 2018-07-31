@@ -53,7 +53,7 @@
               <p>Book Issues</p>
             </a>
           </li>
-          <li class="@if($title=='Members') active @endif">
+          <li class="@if($title=='Registered Members') active @endif">
             <a href="./members">
               <i class="nc-icon nc-badge"></i>
               <p>Registered Members</p>

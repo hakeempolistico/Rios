@@ -66,7 +66,7 @@
               <h5 class="card-title" style="margin: 0px;">ADD</h5>
             </div>
             <div class="card-body">
-              {!! Form::open(['action' => 'SectionsController@store', 'method' => 'POST']) !!}
+              {!! Form::open(['action' => 'SectionController@store', 'method' => 'POST']) !!}
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -94,7 +94,7 @@
               <h5 class="card-title" style="margin: 0px;">EDIT</h5>
             </div>
             <div class="card-body">
-              {!! Form::open(['action' => ['SectionsController@update', null], 'method' => 'PUT']) !!}
+              {!! Form::open(['action' => ['SectionController@update', null], 'method' => 'PUT']) !!}
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">

@@ -21,19 +21,25 @@ Route::get('genres/{id}/destroy', 'GenreController@destroy');
 Route::resource('genres', 'GenreController');
 
 //AUTHORS ROUTING
-Route::put('authors', 'AuthorsController@update');
+Route::put('authors', 'AuthorController@update');
 //Route::delete('genres/destroy', 'GenreController@destroy');
-Route::get('authors/{id}/destroy', 'AuthorsController@destroy');
-Route::resource('authors', 'AuthorsController');
+Route::get('authors/{id}/destroy', 'AuthorController@destroy');
+Route::resource('authors', 'AuthorController');
 
 //SECTIONS ROUTING
-Route::put('sections', 'SectionsController@update');
+Route::put('sections', 'SectionController@update');
 //Route::delete('genres/destroy', 'GenreController@destroy');
-Route::get('sections/{id}/destroy', 'SectionsController@destroy');
-Route::resource('sections', 'SectionsController');
+Route::get('sections/{id}/destroy', 'SectionController@destroy');
+Route::resource('sections', 'SectionController');
 
 //BOOKS ROUTING
-Route::put('books', 'BooksController@update');
+Route::put('books', 'BookController@update');
 //Route::delete('genres/destroy', 'GenreController@destroy');
-Route::get('books/{id}/destroy', 'BooksController@destroy');
-Route::resource('books', 'BooksController');
+Route::get('books/{id}/destroy', 'BookController@destroy');
+Route::resource('books', 'BookController');
+
+//MEMBERS ROUTING
+Route::put('members', 'MemberController@update');
+//Route::delete('genres/destroy', 'GenreController@destroy');
+Route::get('members/{id}/destroy', 'MemberController@destroy');
+Route::resource('members', 'MemberController');

@@ -10,7 +10,7 @@ use App\Genre;
 use App\Section;
 use Illuminate\Support\Facades\DB;
 
-class BooksController extends Controller
+class BookController extends Controller
 {
     /**
      * Display a listing of the resource.

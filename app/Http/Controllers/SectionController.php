@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-use App\Author;
+use App\Section;
 
-class AuthorsController extends Controller
+class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class AuthorsController extends Controller
     public function index()
     {
         $data = array(
-            'title' => 'Authors',
-            'authors' => Author::all()
+            'title' => 'Library Sections',
+            'sections' => Section::all()
         );
-        return view('pages.authors')->with($data);
+        return view('pages.sections')->with($data);
     }
 
     /**
@@ -41,15 +41,15 @@ class AuthorsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:authors,author_name'
+            'name' => 'required|unique:sections,section_name'
         ]);
 
         //Create Genre
-        $author = new Author;
-        $author->author_name = $request->input('name');
-        $author->save();
+        $section = new Section;
+        $section->section_name = $request->input('name');
+        $section->save();
 
-        return redirect('/authors')->with('success', 'Author Created!');
+        return redirect('/sections')->with('success', 'Section Created!');
     }
 
     /**
@@ -84,15 +84,15 @@ class AuthorsController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:authors,author_name'
+            'name' => 'required|unique:sections,section_name'
         ]);
 
         //Update Genre
-        $author = Author::find($request->input('id'));
-        $author->author_name = $request->input('name');
-        $author->save();
+        $section = Section::find($request->input('id'));
+        $section->section_name = $request->input('name');
+        $section->save();
 
-        return redirect('/authors')->with('success', 'Author Edited!');    
+        return redirect('/sections')->with('success', 'Section Edited!');    
     }
 
     /**
@@ -103,7 +103,7 @@ class AuthorsController extends Controller
      */
     public function destroy($id)
     {
-        Author::destroy($id); 
-        return redirect('/authors')->with('success', 'Author Has Been Delete');
+        Section::destroy($id); 
+        return redirect('/sections')->with('success', 'Section Has Been Delete');
     }
 }
