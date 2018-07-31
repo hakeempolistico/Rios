@@ -71,6 +71,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
+                      <small class="text-success">Genre Name</small>
                       {{Form::text('genre', '', ['class' => 'form-control', 'placeholder' => 'Genre Name'])}}
                     </div>
                   </div>
@@ -96,8 +97,9 @@
             <div class="card-body">
               {!! Form::open(['action' => ['GenreController@update', null], 'method' => 'PUT']) !!}
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-md-12">
                     <div class="form-group">
+                      <small class="text-success">ID</small>
                       {{Form::text('id', '', [
                         'id' => 'edit-id',
                         'class' => 'form-control', 
@@ -106,8 +108,9 @@
                         ])}}
                     </div>
                   </div>
-                  <div class="col-md-9">
+                  <div class="col-md-12">
                     <div class="form-group">
+                      <small class="text-success">Genre Name</small>
                       {{Form::text('genre', '', [
                         'id' => 'edit-name',
                         'class' => 'form-control', 

@@ -70,7 +70,8 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Author Name'])}}
+                      <small class="text-success">Section Name</small>
+                      {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Section Name'])}}
                     </div>
                   </div>
                 </div>
@@ -95,8 +96,9 @@
             <div class="card-body">
               {!! Form::open(['action' => ['SectionsController@update', null], 'method' => 'PUT']) !!}
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="col-md-12">
                     <div class="form-group">
+                      <small class="text-success">ID</small>
                       {{Form::text('id', '', [
                         'id' => 'edit-id',
                         'class' => 'form-control', 
@@ -105,12 +107,13 @@
                         ])}}
                     </div>
                   </div>
-                  <div class="col-md-9">
+                  <div class="col-md-12">
                     <div class="form-group">
+                      <small class="text-success">Section Name</small>
                       {{Form::text('name', '', [
                         'id' => 'edit-name',
                         'class' => 'form-control', 
-                        'placeholder' => 'Genre Name'
+                        'placeholder' => 'Section Name'
                         ])}}
                     </div>
                   </div>
