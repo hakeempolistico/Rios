@@ -13,6 +13,17 @@
     table.dataTable{
       border-collapse: collapse;
     }
+    .select2-container{
+      width: 100% !important;
+    }
+    .select2-container--default .select2-selection--single{
+      padding: 6px;
+      border: 1px solid lightgray !important;
+      height: calc(2.25rem + 2px) !important;
+    }
+    .select2-selection__arrow{
+      height: 100% !important;
+    }
 </style>
 
 <div class="content">
@@ -68,40 +79,62 @@
 <div class="modal fade" id="addModal">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="card-title" style="margin: 0px;">ADD</h5>
-            </div>
-            <div class="card-body">
-              {!! Form::open(['action' => 'BooksController@store', 'method' => 'POST']) !!}
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      {{Form::text('book_title', '', ['class' => 'form-control', 'placeholder' => 'Book Title'])}}
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      {!! Form::select('author_id', $authors, '', ['class' => 'form-control', 'placeholder' => 'Select Author']) !!}
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      {!! Form::select('genre_id', $genres, '', ['class' => 'form-control', 'placeholder' => 'Select Genre']) !!}
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      {!! Form::select('section_id', $sections, '', ['class' => 'form-control', 'placeholder' => 'Select Section']) !!}
-                    </div>
-                  </div>
+        <div class="modal-header">
+          <h5 class="card-title" style="margin: 0px;">ADD</h5>
+        </div>
+        <div class="card-body">
+          {!! Form::open(['action' => 'BooksController@store', 'method' => 'POST']) !!}
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="text-success">Book Title</small>
+                  {{Form::text('book_title', '', ['class' => 'form-control', 'placeholder' => 'Book Title'])}}
                 </div>
-                <div class="row">
-                  <div class="update ml-auto mr-auto">
-                    {{Form::submit('Submit', ['class' => 'btn btn-primary btn-round'])}}
-                  </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="pull-right"><a href="/authors">add author</a></small>
+                  <small class="text-success">Book Author</small>
+                  <select name="author" class="select2 form-control" data-placeholder="Select Author">
+                    <option></option>
+                    @foreach($authors as $author)
+                    <option value="{{ $author->id }}">{{ $author->author_name }}</option>
+                    @endforeach
+                  </select>
                 </div>
-              {!! Form::close() !!}
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="pull-right"><a href="/genres">add genre</a></small>
+                  <small class="text-success">Book Genre</small>
+                  <select name="genre" class="select2 form-control" data-placeholder="Select Genre">
+                    <option></option>
+                    @foreach($genres as $genre)
+                    <option value="{{ $genre->id }}">{{ $genre->genre_name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="pull-right"><a href="/sections">add section</a></small>
+                  <small class="text-success">Book Library Section</small>
+                  <select name="section" class="select2 form-control" data-placeholder="Select Library Section">
+                    <option></option>
+                    @foreach($sections as $section)
+                    <option value="{{ $section->id }}">{{ $section->section_name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
             </div>
+            <div class="row">
+              <div class="update ml-auto mr-auto">
+                {{Form::submit('Submit', ['class' => 'btn btn-primary btn-round'])}}
+              </div>
+            </div>
+          {!! Form::close() !!}
+        </div>
     </div>
   </div>
 </div>
@@ -110,39 +143,73 @@
 <div class="modal fade" id="editModal">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="card-title" style="margin: 0px;">EDIT</h5>
-            </div>
-            <div class="card-body">
-              {!! Form::open(['action' => ['SectionsController@update', null], 'method' => 'PUT']) !!}
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="form-group">
-                      {{Form::text('id', '', [
-                        'id' => 'edit-id',
-                        'class' => 'form-control', 
-                        'placeholder' => 'ID',
-                        'readonly'
-                        ])}}
-                    </div>
-                  </div>
-                  <div class="col-md-9">
-                    <div class="form-group">
-                      {{Form::text('name', '', [
-                        'id' => 'edit-name',
-                        'class' => 'form-control', 
-                        'placeholder' => 'Genre Name'
-                        ])}}
-                    </div>
-                  </div>
+        <div class="modal-header">
+          <h5 class="card-title" style="margin: 0px;">EDIT</h5>
+        </div>
+        <div class="card-body">
+          {!! Form::open(['action' => ['BooksController@update', null], 'method' => 'PUT']) !!}
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="text-success">Book ID</small>
+                  {{Form::text('id', '', [
+                    'id' => 'edit-id',
+                    'class' => 'form-control', 
+                    'placeholder' => 'ID',
+                    'readonly'
+                    ])}}
                 </div>
-                <div class="row">
-                  <div class="update ml-auto mr-auto">
-                    {{Form::submit('Update', ['class' => 'btn btn-primary btn-round'])}}
-                  </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="text-success">Book Title</small>
+                  {{Form::text('book_title', '', ['id' => 'edit-title','class' => 'form-control', 'placeholder' => 'Book Title'])}}
                 </div>
-              {!! Form::close() !!}
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="pull-right"><a href="/authors">add author</a></small>
+                  <small class="text-success">Book Author</small>
+                  <select id="edit-author" name="author" class="select2 form-control" data-placeholder="Select Author">
+                    <option></option>
+                    @foreach($authors as $author)
+                    <option value="{{ $author->id }}">{{ $author->author_name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="pull-right"><a href="/genres">add genre</a></small>
+                  <small class="text-success">Book Genre</small>
+                  <select id="edit-genre" name="genre" class="select2 form-control" data-placeholder="Select Genre">
+                    <option></option>
+                    @foreach($genres as $genre)
+                    <option value="{{ $genre->id }}">{{ $genre->genre_name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="pull-right"><a href="/sections">add section</a></small>
+                  <small class="text-success">Book Library Section</small>
+                  <select id="edit-section" name="section" class="select2 form-control" data-placeholder="Select Library Section">
+                    <option></option>
+                    @foreach($sections as $section)
+                    <option value="{{ $section->id }}">{{ $section->section_name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
             </div>
+            <div class="row">
+              <div class="update ml-auto mr-auto">
+                {{Form::submit('Submit', ['class' => 'btn btn-primary btn-round'])}}
+              </div>
+            </div>
+          {!! Form::close() !!}
+        </div>
     </div>
   </div>
 </div>
@@ -191,25 +258,39 @@
 <script src="/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="/demo/demo.js"></script>
+<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script>
+  //SELECT2
+  $('.select2').select2();
 
-  $('#table').DataTable({"pageLength": 25});
+  //DATATABLE
+  $('#table').DataTable({"pageLength": 25})
   $('#table').on('click', '.btn-edit', function () {
-    var id = $(this).closest('tr').children('td:first').text();
-    var name = $(this).closest('tr').children('td:nth-child(2)').text();
-    $('#edit-id').val(id);
-    $('#edit-name').val(name);
-  });
+    var id = $(this).closest('tr').children('td:first').text()
+    var title = $(this).closest('tr').children('td:nth-child(2)').text()
+    var author = $(this).closest('tr').children('td:nth-child(3)').text()
+    var genre = $(this).closest('tr').children('td:nth-child(4)').text()
+    var section = $(this).closest('tr').children('td:nth-child(5)').text()
+
+    $('#edit-id').val(id)
+    $('#edit-title').val(title)
+    $("#edit-author").select2("val", $("#edit-author option:contains('"+author+"')").val())
+    $("#edit-genre").select2("val", $("#edit-genre option:contains('"+genre+"')").val())
+    $("#edit-section").select2("val", $("#edit-section option:contains('"+section+"')").val())
+  })
+
   $('#table').on('click', '.btn-delete', function () {
-    var id = $(this).closest('tr').children('td:first').text();
-    $('.btn-confirm').attr("href", "/sections/"+id+"/destroy");
-    console.log(id);
+    var id = $(this).closest('tr').children('td:first').text()
+    $('.btn-confirm').attr("href", "/books/"+id+"/destroy")
+    console.log(id)
   });
 
   $(document).ready(function() {
     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-    demo.initChartsPages();
+    demo.initChartsPages()
   });
+
 </script>
 
 @endsection

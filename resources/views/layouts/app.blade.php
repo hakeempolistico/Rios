@@ -20,6 +20,8 @@
   <link href="{{asset('demo/demo.css')}}" rel="stylesheet">
   <!-- DataTables-->
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+  <!-- Select2--> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">  
 </head>
 
 <body class="">

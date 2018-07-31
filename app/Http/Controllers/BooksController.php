@@ -19,29 +19,11 @@ class BooksController extends Controller
      */
     public function index()
     {   
-        //AUTHORS
-        $selectAuthors = [];
-        foreach (Author::all() as $author) {
-            $selectAuthors[$author->id] = $author->author_name;
-        } 
-
-        //GENRE
-        $selectGenres = [];
-        foreach (Genre::all() as $genre) {
-            $selectGenres[$genre->id] = $genre->genre_name;
-        } 
-
-        //SECTION
-        $selectSections = [];
-        foreach (Section::all() as $section) {
-            $selectSections[$section->id] = $section->section_name;
-        } 
-
         $data = array(
             'title' => 'Books',
-            'authors' => $selectAuthors,
-            'genres' => $selectGenres,
-            'sections' => $selectSections,
+            'authors' => Author::all(),
+            'sections' => Section::all(),
+            'genres' => Genre::all(),
             'books' => DB::table('books')
             ->select('books.id as id', 
                 'books.book_title as book_title', 
@@ -77,17 +59,17 @@ class BooksController extends Controller
     {
         $this->validate($request, [
             'book_title' => 'required|unique:books,book_title',
-            'author_id' => 'required',
-            'genre_id' => 'required',
-            'section_id' => 'required',
+            'author' => 'required',
+            'genre' => 'required',
+            'section' => 'required',
         ]);
 
         //Create Genre
         $book = new Book;
         $book->book_title = $request->input('book_title');
-        $book->author_id = $request->input('author_id');
-        $book->genre_id = $request->input('genre_id');
-        $book->section_id = $request->input('section_id');
+        $book->author_id = $request->input('author');
+        $book->genre_id = $request->input('genre');
+        $book->section_id = $request->input('section');
         $book->save();
 
         return redirect('/books')->with('success', 'Book Created!');
@@ -122,9 +104,25 @@ class BooksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'id' => 'required',
+            'book_title' => 'required',
+            'author' => 'required',
+            'genre' => 'required',
+            'section' => 'required',
+        ]);
+
+        //Update Books
+        $book = Book::find($request->input('id'));
+        $book->book_title = $request->input('book_title');
+        $book->author_id = $request->input('author');
+        $book->genre_id = $request->input('genre');
+        $book->section_id = $request->input('section');
+        $book->save();
+
+        return redirect('/books')->with('success', 'Book Edited!');    
     }
 
     /**
@@ -135,6 +133,7 @@ class BooksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Book::destroy($id); 
+        return redirect('/books')->with('success', 'Book Deleted');
     }
 }
