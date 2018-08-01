@@ -94,9 +94,31 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'sex' => 'required',
+            'contact' => 'required',
+        ]);
+
+        //Update Books
+        $member = Member::find($request->input('id'));
+        $member->firstname = $request->input('firstname');
+        $member->lastname = $request->input('lastname');
+        $member->sex = $request->input('sex');
+        $member->contact = $request->input('contact');
+        $member->house_number = $request->input('house_number');
+        $member->street = $request->input('street');
+        $member->barangay = $request->input('barangay');
+        $member->city = $request->input('city');
+        $member->province = $request->input('province');
+        $member->email = $request->input('email');
+        $member->note = $request->input('note');
+        $member->save();
+
+        return redirect('/members')->with('success', 'Member Updated!');   
     }
 
     /**
@@ -107,6 +129,13 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Member::destroy($id); 
+        return redirect('/members')->with('error', 'Member Deleted');
+    }
+
+    public function getInfo(Request $request)
+    {
+        $info = Member::find($request['id']);
+        return response()->json($info);
     }
 }

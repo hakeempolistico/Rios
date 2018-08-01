@@ -42,4 +42,5 @@ Route::resource('books', 'BookController');
 Route::put('members', 'MemberController@update');
 //Route::delete('genres/destroy', 'GenreController@destroy');
 Route::get('members/{id}/destroy', 'MemberController@destroy');
+Route::post('/members/getInfo', 'MemberController@getInfo');
 Route::resource('members', 'MemberController');

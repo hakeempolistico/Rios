@@ -104,6 +104,6 @@ class AuthorController extends Controller
     public function destroy($id)
     {
         Author::destroy($id); 
-        return redirect('/authors')->with('success', 'Author Has Been Delete');
+        return redirect('/authors')->with('error', 'Author Has Been Delete');
     }
 }

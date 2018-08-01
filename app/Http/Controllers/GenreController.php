@@ -104,6 +104,6 @@ class GenreController extends Controller
     public function destroy($id)
     {
         Genre::destroy($id); 
-        return redirect('/genres')->with('success', 'Item Has Been Delete');
+        return redirect('/genres')->with('error', 'Item Has Been Delete');
     }
 }

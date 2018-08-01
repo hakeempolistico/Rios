@@ -13,6 +13,9 @@
     table.dataTable{
       border-collapse: collapse;
     }
+    .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+      background-color: #F8F8F8 !important;
+    }
 </style>
 
 <div class="content">
@@ -181,12 +184,137 @@
               {{Form::submit('Submit', ['class' => 'btn btn-primary btn-round'])}}
             </div>
           </div>
-        {!! Form::close() !!}
       </div>
+      {!! Form::close() !!}
     </div>
   </div>
 </div>
 
+<!-- View Modal -->
+<div class="modal fade" id="viewModal">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="card-title" style="margin: 0px;">View</h5>
+      </div>
+      <div class="card-body">
+          <div class="row">
+            <div class="col-md-12" style="margin-bottom: 10px">
+              <center><img class="avatar border-gray rounded-circle" src="/img/user.png" width="30%"></center>
+            </div>
+            <div class="col-md-12" style="margin-bottom: 10px">
+              <center><h5 id="view-fullname" class="text-primary">Hakeem Joshua Polistico</h5></center>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">ID</small>
+                {{Form::text('id', '25', [
+                  'id' => 'view-id',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">Sex</small>
+                {{Form::select('sex',  array('male' => 'Male', 'female' => 'Female'), '', [
+                  'id' => 'view-sex',
+                  'class' => 'form-control',
+                  'disabled'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">House Number</small>
+                {{Form::text('name', '', [
+                  'id' => 'view-housenumber',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">Street</small>
+                {{Form::text('name', '', [
+                  'id' => 'view-street',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">Barangay</small>
+                {{Form::text('name', '', [
+                  'id' => 'view-barangay',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">City</small>
+                {{Form::text('name', '', [
+                  'id' => 'view-city',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">Province</small>
+                {{Form::text('name', '', [
+                  'id' => 'view-province',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">Contact Number</small>
+                {{Form::text('name', '', [
+                  'id' => 'view-contact',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">Email</small>
+                {{Form::text('name', '', [
+                  'id' => 'view-email',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <small class="text-success">Note</small>
+                {{Form::textarea('name', '', [
+                  'id' => 'view-note',
+                  'class' => 'form-control',
+                  'readonly'
+                  ])}}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              {{Form::submit('Close', ['class' => 'btn btn-primary btn-round', 'data-dismiss' => 'modal'])}}
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal">
   <div class="modal-dialog modal-md">
@@ -195,7 +323,7 @@
         <h5 class="card-title" style="margin: 0px;">EDIT</h5>
       </div>
       <div class="card-body">
-        {!! Form::open(['action' => ['AuthorController@update', null], 'method' => 'PUT']) !!}
+        {!! Form::open(['action' => ['MemberController@update', null], 'method' => 'PUT']) !!}
           <div class="row">
             <div class="col-md-12" style="margin-bottom: 10px">
               <center><img class="avatar border-gray rounded-circle" src="/img/user.png" width="30%"></center>
@@ -214,7 +342,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">First Name</small>
-                {{Form::text('name', '', [
+                {{Form::text('firstname', '', [
                   'id' => 'edit-firstname',
                   'class' => 'form-control', 
                   'placeholder' => 'First Name'
@@ -224,7 +352,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">Last Name</small>
-                {{Form::text('name', '', [
+                {{Form::text('lastname', '', [
                   'id' => 'edit-lastname',
                   'class' => 'form-control', 
                   'placeholder' => 'Last Name'
@@ -235,7 +363,7 @@
               <div class="form-group">
                 <small class="text-success">Sex</small>
                 {{Form::select('sex',  array('male' => 'Male', 'female' => 'Female'), '', [
-                  'id' => 'edit-lastname',
+                  'id' => 'edit-sex',
                   'class' => 'form-control', 
                   'placeholder' => 'Last Name'
                   ])}}
@@ -244,7 +372,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">House Number</small>
-                {{Form::text('name', '', [
+                {{Form::text('house_number', '', [
                   'id' => 'edit-housenumber',
                   'class' => 'form-control', 
                   'placeholder' => 'House Number'
@@ -254,7 +382,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">Street</small>
-                {{Form::text('name', '', [
+                {{Form::text('street', '', [
                   'id' => 'edit-street',
                   'class' => 'form-control', 
                   'placeholder' => 'Street'
@@ -264,7 +392,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">Barangay</small>
-                {{Form::text('name', '', [
+                {{Form::text('barangay', '', [
                   'id' => 'edit-barangay',
                   'class' => 'form-control', 
                   'placeholder' => 'Barangay'
@@ -274,7 +402,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">City</small>
-                {{Form::text('name', '', [
+                {{Form::text('city', '', [
                   'id' => 'edit-city',
                   'class' => 'form-control', 
                   'placeholder' => 'City'
@@ -284,7 +412,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">Province</small>
-                {{Form::text('name', '', [
+                {{Form::text('province', '', [
                   'id' => 'edit-province',
                   'class' => 'form-control', 
                   'placeholder' => 'Province'
@@ -294,7 +422,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">Contact Number</small>
-                {{Form::text('name', '', [
+                {{Form::text('contact', '', [
                   'id' => 'edit-contact',
                   'class' => 'form-control', 
                   'placeholder' => 'Contact Number'
@@ -304,7 +432,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">Email</small>
-                {{Form::text('name', '', [
+                {{Form::text('email', '', [
                   'id' => 'edit-email',
                   'class' => 'form-control', 
                   'placeholder' => 'Email'
@@ -314,7 +442,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">Note</small>
-                {{Form::textarea('name', '', [
+                {{Form::textarea('note', '', [
                   'id' => 'edit-note',
                   'class' => 'form-control', 
                   'placeholder' => 'Note'
@@ -380,22 +508,76 @@
 <script>
 
   $('#table').DataTable({"pageLength": 25});
-  $('#table').on('click', '.btn-edit', function () {
-    var id = $(this).closest('tr').children('td:first').text();
-    var name = $(this).closest('tr').children('td:nth-child(2)').text();
-    $('#edit-id').val(id);
-    $('#edit-name').val(name);
-  });
   $('#table').on('click', '.btn-delete', function () {
     var id = $(this).closest('tr').children('td:first').text();
-    $('.btn-confirm').attr("href", "/authors/"+id+"/destroy");
+    $('.btn-confirm').attr("href", "/members/"+id+"/destroy");
     console.log(id);
+  });
+  $('#table').on('click', '.btn-view', function (e) {
+    var id = $(this).closest('tr').children('td:first').text()
+    e.preventDefault()
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': '{{csrf_token()}}'
+      }
+    });
+    jQuery.ajax({
+      url: "{{ url('/members/getInfo') }}",
+      method: 'post',
+      data: {
+        id: id,
+      },
+      success: function(result){
+        $('#view-fullname').text(result.firstname+' '+result.lastname)
+        $('#view-id').val(result.id)
+        $('#view-sex').val(result.sex)
+        $('#view-housenumber').val(result.house_number)
+        $('#view-street').val(result.street)
+        $('#view-city').val(result.city)
+        $('#view-barangay').val(result.barangay)
+        $('#view-province').val(result.province)
+        $('#view-contact').val(result.contact)
+        $('#view-email').val(result.email)
+        $('#view-note').val(result.note)
+        console.log(result)
+      }})
+  });
+  $('#table').on('click', '.btn-edit', function (e) {
+    var id = $(this).closest('tr').children('td:first').text()
+    e.preventDefault()
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': '{{csrf_token()}}'
+      }
+    });
+    jQuery.ajax({
+      url: "{{ url('/members/getInfo') }}",
+      method: 'post',
+      data: {
+        id: id,
+      },
+      success: function(result){
+        $('#edit-firstname').val(result.firstname)
+        $('#edit-lastname').val(result.lastname)
+        $('#edit-id').val(result.id)
+        $('#edit-sex').val(result.sex)
+        $('#edit-housenumber').val(result.house_number)
+        $('#edit-street').val(result.street)
+        $('#edit-city').val(result.city)
+        $('#edit-barangay').val(result.barangay)
+        $('#edit-province').val(result.province)
+        $('#edit-contact').val(result.contact)
+        $('#edit-email').val(result.email)
+        $('#edit-note').val(result.note)
+        console.log(result)
+      }})
   });
 
   $(document).ready(function() {
     // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-    demo.initChartsPages();
+    demo.initChartsPages()
   });
+
 </script>
 
 @endsection

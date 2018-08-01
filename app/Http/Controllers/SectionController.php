@@ -104,6 +104,6 @@ class SectionController extends Controller
     public function destroy($id)
     {
         Section::destroy($id); 
-        return redirect('/sections')->with('success', 'Section Has Been Delete');
+        return redirect('/sections')->with('error', 'Section Has Been Delete');
     }
 }
