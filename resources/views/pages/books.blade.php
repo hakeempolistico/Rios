@@ -46,6 +46,7 @@
                       <th>Author</th>
                       <th>Genre</th>
                       <th>Section</th>
+                      <th>Copies</th>
                       <th width="15%">Action</th>
                   </tr>
                 </thead>
@@ -57,8 +58,10 @@
                       <td>{{$book->author_name}}</td>
                       <td>{{$book->genre_name}}</td>
                       <td>{{$book->section_name}}</td>
+                      <td>{{$book->copies}}</td>
                       <td>
                         <center>
+                          <button type="button" class="btn btn-sm btn-info btn-add-copy" data-toggle="modal" data-target="#addCopyModal"><i class="fa fa-plus"></i></button>
                           <button type="button" class="btn btn-sm btn-primary btn-edit" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
                           <button type="button" class="btn btn-sm btn-danger btn-delete" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-remove"></i></button>
                         </center>
@@ -125,6 +128,51 @@
                     <option value="{{ $section->id }}">{{ $section->section_name }}</option>
                     @endforeach
                   </select>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="text-success">Book Copies</small>
+                  {{Form::number('copies', '', ['class' => 'form-control', 'placeholder' => 'Book Copies'])}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="update ml-auto mr-auto">
+                {{Form::submit('Submit', ['class' => 'btn btn-primary btn-round'])}}
+              </div>
+            </div>
+          {!! Form::close() !!}
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Copies Modal -->
+<div class="modal fade" id="addCopyModal">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="card-title" style="margin: 0px;">ADD COPIES</h5>
+        </div>
+        <div class="card-body">
+          {!! Form::open(['action' => 'BookController@addCopies', 'method' => 'PUT']) !!}
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="text-success">ID</small>
+                  {{Form::text('id', '', [
+                    'id' => 'add-copies-id',
+                    'class' => 'form-control', 
+                    'placeholder' => 'ID',
+                    'readonly'
+                    ])}}
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <small class="text-success">Copies</small>
+                  {{Form::number('copies', '', ['id' => 'add-copies-val', 'class' => 'form-control'])}}
                 </div>
               </div>
             </div>
@@ -283,7 +331,11 @@
   $('#table').on('click', '.btn-delete', function () {
     var id = $(this).closest('tr').children('td:first').text()
     $('.btn-confirm').attr("href", "/books/"+id+"/destroy")
-    console.log(id)
+  });
+
+  $('#table').on('click', '.btn-add-copy', function () {
+    var id = $(this).closest('tr').children('td:first').text()
+    $('#add-copies-id').val(id)
   });
 
   $(document).ready(function() {

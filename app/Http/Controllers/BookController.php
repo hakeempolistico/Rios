@@ -25,12 +25,13 @@ class BookController extends Controller
             'sections' => Section::all(),
             'genres' => Genre::all(),
             'books' => DB::table('books')
-            ->select('books.id as id', 
+            ->select('books.id as id', 'books.copies as copies',
                 'books.book_title as book_title', 
                 'authors.author_name as author_name', 
                 'genres.genre_name as genre_name', 
                 'sections.section_name as section_name'
             )
+            ->where('copies', '!=' , 0)
             ->join('authors', 'authors.id', '=', 'books.author_id')
             ->join('genres', 'genres.id', '=', 'books.genre_id')
             ->join('sections', 'sections.id', '=', 'books.section_id')
@@ -73,6 +74,20 @@ class BookController extends Controller
         $book->save();
 
         return redirect('/books')->with('success', 'Book Created!');
+    }
+
+    public function addCopies(Request $request)
+    {
+        $this->validate($request, [
+            'copies' => 'required'
+        ]);
+
+        //Add Copies
+        $book = Book::find( $request->input('id') );
+        $book->copies += $request->input('copies');
+        $book->save();
+
+        return redirect('/books')->with('success', 'Copies Added!');
     }
 
     /**
