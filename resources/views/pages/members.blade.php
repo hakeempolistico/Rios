@@ -38,7 +38,7 @@
                       <th>Last Name</th>
                       <th>Contact Number</th>
                       <th>Email</th>
-                      <th width="15%">Action</th>
+                      <th width="20%">Action</th>
                   </tr>
                 </thead>
                 <tbody>
