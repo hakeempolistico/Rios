@@ -32,6 +32,13 @@ Route::put('sections', 'SectionController@update');
 Route::get('sections/{id}/destroy', 'SectionController@destroy');
 Route::resource('sections', 'SectionController');
 
+//ISSUES ROUTING
+Route::put('issues', 'IssueController@update');
+//Route::delete('genres/destroy', 'GenreController@destroy');
+Route::get('issues/{id}/destroy', 'IssueController@destroy');
+Route::get('returned', 'IssueController@returned');
+Route::resource('issues', 'IssueController');
+
 //BOOKS ROUTING
 Route::put('books', 'BookController@update');
 Route::put('books', 'BookController@addCopies');

@@ -306,7 +306,7 @@
 <script src="/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="/demo/demo.js"></script>
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<!-- Select2! -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script>
   //SELECT2

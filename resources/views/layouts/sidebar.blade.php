@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="@if($title=='Book Issues') active @endif">
-            <a href="./issue">
+            <a href="./issues">
               <i class="nc-icon nc-box-2"></i>
               <p>Book Issues</p>
             </a>
