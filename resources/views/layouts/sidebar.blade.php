@@ -8,7 +8,7 @@
             <img src="img/logo-rasengan.png">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/dashboard" class="simple-text logo-normal">
           Rio's Library
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">

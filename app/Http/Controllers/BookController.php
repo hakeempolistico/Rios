@@ -63,6 +63,7 @@ class BookController extends Controller
             'author' => 'required',
             'genre' => 'required',
             'section' => 'required',
+            'copies' => 'required',
         ]);
 
         //Create Genre
@@ -71,6 +72,7 @@ class BookController extends Controller
         $book->author_id = $request->input('author');
         $book->genre_id = $request->input('genre');
         $book->section_id = $request->input('section');
+        $book->copies = $request->input('copies');
         $book->save();
 
         return redirect('/books')->with('success', 'Book Created!');

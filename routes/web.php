@@ -41,7 +41,7 @@ Route::resource('issues', 'IssueController');
 
 //BOOKS ROUTING
 Route::put('books', 'BookController@update');
-Route::put('books', 'BookController@addCopies');
+Route::put('books/addcopy', 'BookController@addCopies');
 //Route::delete('genres/destroy', 'GenreController@destroy');
 Route::get('books/{id}/destroy', 'BookController@destroy');
 Route::resource('books', 'BookController');
