@@ -14,7 +14,7 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category"> <a href="/books">No of Books</a></p>
+                      <p class="card-category"> No of Books</p>
                       <p class="card-title">{{$bookCount}}
                         <p>
                     </div>
@@ -24,7 +24,7 @@
               <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-refresh"></i> Update Now
+                  <i class="fa fa-space-shuttle"></i> <a href="/books">Go to books</a>
                 </div>
               </div>
             </div>
@@ -40,7 +40,7 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category"><a href="/issues">Issued Books</a></p>
+                      <p class="card-category">Issued Books</p>
                       <p class="card-title">{{$issuedCount}}
                         <p>
                     </div>
@@ -50,7 +50,7 @@
               <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-calendar-o"></i> Last day
+                  <i class="fa fa-space-shuttle"></i> <a href="/issues">Go to Book Issues</a>
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category"><a href="/authors">Authors</a></p>
+                      <p class="card-category">Authors</p>
                       <p class="card-title">{{$authorCount}}
                         <p>
                     </div>
@@ -76,7 +76,7 @@
               <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-clock-o"></i> In the last hour
+                  <i class="fa fa-space-shuttle"></i> <a href="/authors">Go to Authors</a>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category"><a href="/members">Members</a></p>
+                      <p class="card-category">Members</p>
                       <p class="card-title">{{$memberCount}}
                         <p>
                     </div>
@@ -102,7 +102,7 @@
               <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <i class="fa fa-refresh"></i> Update now
+                  <i class="fa fa-space-shuttle"></i> <a href="/members">Go to Members</a>
                 </div>
               </div>
             </div>

@@ -19,7 +19,7 @@
       <ul class="navbar-nav">
         <li class="nav-item btn-rotate dropdown">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{Auth::user()->name}}
+            <i class="fa fa-id-badge" style="top: 0px"></i> {{Auth::user()->name}}
             <p>
               <span class="d-lg-none d-md-block">Some Actions</span>
             </p>
