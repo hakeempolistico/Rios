@@ -22,7 +22,12 @@ class DashboardController extends Controller
             'authorCount' => Author::count('id'),
             'bookCount' => Book::count('id'),
             'issuedCount' => IssuedBook::where('status','issued')->count('id'),
-            'memberCount' => Member::count('id')
+            'memberCount' => Member::count('id'),
+            'fictionCount' => Book::where('section_id', 5)->count('id'),
+            'circulationCount' => Book::where('section_id', 1)->count('id'),
+            'periodicalCount' => Book::where('section_id', 2)->count('id'),
+            'generalCount' => Book::where('section_id', 3)->count('id'),
+            'childrenCount' => Book::where('section_id', 4)->count('id'),
         );
         return view('pages.dashboard')->with($data);
     }

@@ -24,7 +24,11 @@
   <!-- Select2--> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">  
 </head>
-
+<style>
+  .text-white{
+    color: white !important;
+  }
+</style>
 <body class="">
   <div class="wrapper ">
     @include('layouts.sidebar')
