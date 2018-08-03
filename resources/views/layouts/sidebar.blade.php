@@ -59,12 +59,12 @@
               <p>Registered Members</p>
             </a>
           </li>
-          <li class="active-pro">
+          {{-- <li class="active-pro">
             <a href="./settings">
               <i class="nc-icon nc-spaceship"></i>
               <p>SETTINGS</p>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>

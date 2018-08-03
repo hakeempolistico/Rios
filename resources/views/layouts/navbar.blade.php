@@ -17,15 +17,24 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navigation">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link btn-rotate" href="#pablo">
-            <i class="fa fa-sign-out"></i>
+        <li class="nav-item btn-rotate dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{Auth::user()->name}}
             <p>
-              <span class="d-lg-none d-md-block">Log Out</span>
+              <span class="d-lg-none d-md-block">Some Actions</span>
             </p>
           </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+            </form>
+          </div>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    
+                                </div>
