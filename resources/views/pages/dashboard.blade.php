@@ -283,7 +283,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-lg-3">
             <div class="card ">
               <div class="card-header ">
                 <h5 class="card-title">Section Statistics</h5>
@@ -307,12 +307,95 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="card border border-danger bg-light mb-3">
-              <div class="card-header">Quote</div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card mb-3 bg-primary">
+              <div class="card-header">
+                <h5 class="card-title text-white">Section Statistics</h5>
+              </div>
               <div class="card-body">
-                <h5 class="card-title">"Any book that helps a child to form a habit of reading, to make reading one of his deep and continuing needs, is good for him.."</h5>
-                <p class="card-text">-Maya Angelou</p>
+                <table class="table table-borderless text-white">
+                  <tr>
+                    <td><b>CIRCULATION</b></td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td><b>PERIODICAL</b></td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td><b>GENERAL REFERENCE</b></td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td><b>CHILDREN'S SECTION</b></td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td><b>FICTION</b></td>
+                    <td>1</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card mb-3 bg-success">
+              <div class="card-header">
+                <h5 class="card-title text-white">Last Added Books</h5>
+              </div>
+              <div class="card-body">
+                <table class="table table-borderless text-white">
+                  <tr>
+                    <td><b>TWILIGHT</b></td>
+                    <td>Stephenie Meyer</td>
+                  </tr>
+                  <tr>
+                    <td><b>NEW MOON</b></td>
+                    <td>Stephenie Meyer</td>
+                  </tr>
+                  <tr>
+                    <td><b>ECLIPSE</b></td>
+                    <td>Stephenie Meyer</td>
+                  </tr>
+                  <tr>
+                    <td><b>BREAKING DAWN</b></td>
+                    <td>Stephenie Meyer</td>
+                  </tr>
+                  <tr>
+                    <td><b>MIDNIGHT SUN</b></td>
+                    <td>Stephenie Meyer</td>                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card mb-3 bg-danger">
+              <div class="card-header">
+                <h5 class="card-title text-white">Last Added Members</h5>
+              </div>
+              <div class="card-body">
+                <table class="table table-borderless text-white">
+                  <tr>
+                    <td><b>HAKEEM POLISTICO</b></td>
+                    <td>09558874822</td>
+                  </tr>
+                  <tr>
+                    <td><b>HAKEEM POLISTICO</b></td>
+                    <td>09558874822</td>
+                  </tr>
+                  <tr>
+                    <td><b>HAKEEM POLISTICO</b></td>
+                    <td>09558874822</td>
+                  </tr>
+                  <tr>
+                    <td><b>HAKEEM POLISTICO</b></td>
+                    <td>09558874822</td>
+                  </tr>
+                  <tr>
+                    <td><b>HAKEEM POLISTICO</b></td>
+                    <td>09558874822</td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>
