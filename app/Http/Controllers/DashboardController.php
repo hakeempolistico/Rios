@@ -21,7 +21,7 @@ class DashboardController extends Controller
             'title' => 'Dashboard',
             'authorCount' => Author::count('id'),
             'bookCount' => Book::count('id'),
-            'issuedCount' => IssuedBook::count('id'),
+            'issuedCount' => IssuedBook::where('status','issued')->count('id'),
             'memberCount' => Member::count('id')
         );
         return view('pages.dashboard')->with($data);

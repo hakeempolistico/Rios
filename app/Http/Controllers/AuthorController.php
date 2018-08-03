@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-use App\Genre;
+use App\Author;
 
-class GenreController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class GenreController extends Controller
     public function index()
     {
         $data = array(
-            'title' => 'Genres',
-            'genres' => Genre::all()
+            'title' => 'Authors',
+            'authors' => Author::all()
         );
-        return view('pages.genre')->with($data);
-    }   
+        return view('pages.authors')->with($data);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -41,15 +41,15 @@ class GenreController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'genre' => 'required|unique:genres,genre_name'
+            'name' => 'required|unique:authors,author_name'
         ]);
 
         //Create Genre
-        $genre = new Genre;
-        $genre->genre_name = $request->input('genre');
-        $genre->save();
+        $author = new Author;
+        $author->author_name = $request->input('name');
+        $author->save();
 
-        return redirect('/genres')->with('success', 'Genre Created!');
+        return redirect('/authors')->with('success', 'Author Created!');
     }
 
     /**
@@ -84,15 +84,15 @@ class GenreController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'genre' => 'required|unique:genres,genre_name'
+            'name' => 'required|unique:authors,author_name'
         ]);
 
         //Update Genre
-        $genre = Genre::find($request->input('id'));
-        $genre->genre_name = $request->input('genre');
-        $genre->save();
+        $author = Author::find($request->input('id'));
+        $author->author_name = $request->input('name');
+        $author->save();
 
-        return redirect('/genres')->with('success', 'Genre Edited!');    
+        return redirect('/authors')->with('success', 'Author Edited!');    
     }
 
     /**
@@ -103,7 +103,7 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        Genre::destroy($id); 
-        return redirect('/genres')->with('error', 'Item Has Been Delete');
+        Author::destroy($id); 
+        return redirect('/authors')->with('error', 'Author Has Been Delete');
     }
 }

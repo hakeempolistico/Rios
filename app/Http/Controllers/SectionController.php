@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
-use App\Genre;
+use App\Section;
 
-class GenreController extends Controller
+class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class GenreController extends Controller
     public function index()
     {
         $data = array(
-            'title' => 'Genres',
-            'genres' => Genre::all()
+            'title' => 'Library Sections',
+            'sections' => Section::all()
         );
-        return view('pages.genre')->with($data);
-    }   
+        return view('pages.sections')->with($data);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -41,15 +41,15 @@ class GenreController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'genre' => 'required|unique:genres,genre_name'
+            'name' => 'required|unique:sections,section_name'
         ]);
 
         //Create Genre
-        $genre = new Genre;
-        $genre->genre_name = $request->input('genre');
-        $genre->save();
+        $section = new Section;
+        $section->section_name = $request->input('name');
+        $section->save();
 
-        return redirect('/genres')->with('success', 'Genre Created!');
+        return redirect('/sections')->with('success', 'Section Created!');
     }
 
     /**
@@ -84,15 +84,15 @@ class GenreController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'genre' => 'required|unique:genres,genre_name'
+            'name' => 'required|unique:sections,section_name'
         ]);
 
         //Update Genre
-        $genre = Genre::find($request->input('id'));
-        $genre->genre_name = $request->input('genre');
-        $genre->save();
+        $section = Section::find($request->input('id'));
+        $section->section_name = $request->input('name');
+        $section->save();
 
-        return redirect('/genres')->with('success', 'Genre Edited!');    
+        return redirect('/sections')->with('success', 'Section Edited!');    
     }
 
     /**
@@ -103,7 +103,7 @@ class GenreController extends Controller
      */
     public function destroy($id)
     {
-        Genre::destroy($id); 
-        return redirect('/genres')->with('error', 'Item Has Been Delete');
+        Section::destroy($id); 
+        return redirect('/sections')->with('error', 'Section Has Been Delete');
     }
 }

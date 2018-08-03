@@ -8,7 +8,7 @@
             <img src="img/logo-rasengan.png">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/dashboard" class="simple-text logo-normal">
           Rio's Library
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -48,23 +48,23 @@
             </a>
           </li>
           <li class="@if($title=='Book Issues') active @endif">
-            <a href="./issue">
+            <a href="./issues">
               <i class="nc-icon nc-box-2"></i>
               <p>Book Issues</p>
             </a>
           </li>
-          <li class="@if($title=='Members') active @endif">
+          <li class="@if($title=='Registered Members') active @endif">
             <a href="./members">
               <i class="nc-icon nc-badge"></i>
               <p>Registered Members</p>
             </a>
           </li>
-          <li class="active-pro">
+          {{-- <li class="active-pro">
             <a href="./settings">
               <i class="nc-icon nc-spaceship"></i>
               <p>SETTINGS</p>
             </a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </div>

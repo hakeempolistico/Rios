@@ -27,7 +27,7 @@
         </div>
         <div class="card-body">
           <div class="table">
-            <table class="table table-bordered table-striped" id="genre-table">
+            <table class="table table-bordered table-striped" id="table">
                 <thead>
                   <tr>
                       <th width="10%">Id</th>
@@ -36,17 +36,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($genres as $genre)
+                  @foreach($sections as $section)
                     <tr>
-                      <td>{{$genre->id}}</td>
-                      <td>{{$genre->genre_name}}</td>
+                      <td>{{$section->id}}</td>
+                      <td>{{$section->section_name}}</td>
                       <td>
                         <center>
                           <button type="button" class="btn btn-sm btn-primary btn-edit" data-toggle="modal" data-target="#editModal"><i class="fa fa-edit"></i></button>
                           <button type="button" class="btn btn-sm btn-danger btn-delete" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-remove"></i></button>
                         </center>
                       </td>
-
                     </tr>
                   @endforeach
                 </tbody>
@@ -67,12 +66,12 @@
               <h5 class="card-title" style="margin: 0px;">ADD</h5>
             </div>
             <div class="card-body">
-              {!! Form::open(['action' => 'GenreController@store', 'method' => 'POST']) !!}
+              {!! Form::open(['action' => 'SectionController@store', 'method' => 'POST']) !!}
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <small class="text-success">Genre Name</small>
-                      {{Form::text('genre', '', ['class' => 'form-control', 'placeholder' => 'Genre Name'])}}
+                      <small class="text-success">Section Name</small>
+                      {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Section Name'])}}
                     </div>
                   </div>
                 </div>
@@ -95,7 +94,7 @@
               <h5 class="card-title" style="margin: 0px;">EDIT</h5>
             </div>
             <div class="card-body">
-              {!! Form::open(['action' => ['GenreController@update', null], 'method' => 'PUT']) !!}
+              {!! Form::open(['action' => ['SectionController@update', null], 'method' => 'PUT']) !!}
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
@@ -110,11 +109,11 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <small class="text-success">Genre Name</small>
-                      {{Form::text('genre', '', [
+                      <small class="text-success">Section Name</small>
+                      {{Form::text('name', '', [
                         'id' => 'edit-name',
                         'class' => 'form-control', 
-                        'placeholder' => 'Genre Name'
+                        'placeholder' => 'Section Name'
                         ])}}
                     </div>
                   </div>
@@ -138,14 +137,14 @@
               <h5 class="card-title" style="margin: 0px;">DELETE</h5>
             </div>
             <div class="card-body">
-              <div class="row">
-                <h6 style="margin: 10px;">Are you sure you want to delete record?</h6>
-              </div>
-              <div class="row">
-                <div class="update ml-auto mr-auto">
-                  <a href="#" class="btn btn-danger btn-round btn-confirm"> DELETE </a>
+                <div class="row">
+                  <h6 style="margin: 10px;">Are you sure you want to delete record?</h6>
                 </div>
-              </div>
+                <div class="row">
+                  <div class="update ml-auto mr-auto">       
+                    <a href="#" class="btn btn-danger btn-round btn-confirm"> DELETE </a>
+                  </div>
+                </div>
             </div>
     </div>
   </div>
@@ -176,16 +175,16 @@
 <script src="/demo/demo.js"></script>
 <script>
 
-  $('#genre-table').DataTable({"pageLength": 25});
-  $('#genre-table').on('click', '.btn-edit', function () {
+  $('#table').DataTable({"pageLength": 25});
+  $('#table').on('click', '.btn-edit', function () {
     var id = $(this).closest('tr').children('td:first').text();
     var name = $(this).closest('tr').children('td:nth-child(2)').text();
     $('#edit-id').val(id);
     $('#edit-name').val(name);
   });
-  $('#genre-table').on('click', '.btn-delete', function () {
+  $('#table').on('click', '.btn-delete', function () {
     var id = $(this).closest('tr').children('td:first').text();
-    $('.btn-confirm').attr("href", "/genres/"+id+"/destroy");
+    $('.btn-confirm').attr("href", "/sections/"+id+"/destroy");
     console.log(id);
   });
 
