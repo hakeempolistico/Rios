@@ -301,7 +301,7 @@
                   <i class="fa fa-circle" style="color: #52B3D9"></i> Fiction
                 </div>
                 <hr>
-                <div class="stats">
+                <div class="stats text-10">
                   <i class="fa fa-calendar"></i> Percent of books per section
                 </div>
               </div>
