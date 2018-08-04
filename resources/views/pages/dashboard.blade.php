@@ -158,13 +158,67 @@
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-badge text-primary text-white"></i>
+                      <i class="nc-icon nc-book-bookmark text-primary text-white"></i>
                     </div>
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category text-white">New Issued Books</p>
-                      <p class="card-title text-white">{{$memberCount}}
+                      <p class="card-category text-white">New Books</p>
+                      <p class="card-title text-white">{{$booksWeeklyReport}}
+                        <p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats text-white">
+                  <i class="fa fa-refresh text-white"></i> Weekly Report
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats bg-warning">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-box text-primary text-white"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category text-white">New Issued</p>
+                      <p class="card-title text-white">{{$issuedWeeklyReport}}
+                        <p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer ">
+                <hr>
+                <div class="stats  text-white">
+                  <i class="fa fa-refresh text-white"></i> Weekly Report
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats bg-warning">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="nc-icon nc-share-66 text-primary text-white"></i>
+                    </div>
+                  </div>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category text-white">Returned</p>
+                      <p class="card-title text-white">{{$returnedWeeklyReport}}
                         <p>
                     </div>
                   </div>
@@ -190,62 +244,8 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <div class="numbers">
-                      <p class="card-category text-white">New Issued Books</p>
-                      <p class="card-title text-white">{{$memberCount}}
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats  text-white">
-                  <i class="fa fa-refresh text-white"></i> Weekly Report
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats bg-warning">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-badge text-primary text-white"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category text-white">New Issued Books</p>
-                      <p class="card-title text-white">{{$memberCount}}
-                        <p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats  text-white">
-                  <i class="fa fa-refresh text-white"></i> Weekly Report
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats bg-warning">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-badge text-primary text-white"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category text-white">New Issued Books</p>
-                      <p class="card-title text-white">{{$memberCount}}
+                      <p class="card-category text-white">New Members</p>
+                      <p class="card-title text-white">{{$membersWeeklyReport}}
                         <p>
                     </div>
                   </div>
@@ -293,11 +293,11 @@
                 <canvas id="chartEmail"></canvas>
               </div>
               <div class="card-footer ">
-                <div class="legend">
-                  <i class="fa fa-circle text-primary"></i> Circulation
-                  <i class="fa fa-circle text-warning"></i> Periodical
-                  <i class="fa fa-circle text-danger"></i> General Reference
-                  <i class="fa fa-circle text-gray"></i> Children's Section
+                <div class="legend text-10">
+                  <i class="fa fa-circle text-primary"></i> Periodical 
+                  <i class="fa fa-circle text-warning"></i> General Reference
+                  <i class="fa fa-circle text-danger"></i> Children's Section
+                  <i class="fa fa-circle text-gray"></i> Circulation
                   <i class="fa fa-circle" style="color: #52B3D9"></i> Fiction
                 </div>
                 <hr>
@@ -310,29 +310,29 @@
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card mb-3 bg-primary">
               <div class="card-header">
-                <h5 class="card-title text-white">Section Statistics</h5>
+                <h6 class="card-title text-white">Section Statistics</h6>
               </div>
-              <div class="card-body">
-                <table class="table table-borderless text-white">
+              <div class="card-body pt-0">
+                <table class="table table-borderless text-white text-10">
                   <tr>
                     <td><b>CIRCULATION</b></td>
-                    <td>1</td>
+                    <td class="pull-right">1</td>
                   </tr>
                   <tr>
                     <td><b>PERIODICAL</b></td>
-                    <td>1</td>
+                    <td class="pull-right">1</td>
                   </tr>
                   <tr>
                     <td><b>GENERAL REFERENCE</b></td>
-                    <td>1</td>
+                    <td class="pull-right">1</td>
                   </tr>
                   <tr>
                     <td><b>CHILDREN'S SECTION</b></td>
-                    <td>1</td>
+                    <td class="pull-right">1</td>
                   </tr>
                   <tr>
                     <td><b>FICTION</b></td>
-                    <td>1</td>
+                    <td class="pull-right">1</td>
                   </tr>
                 </table>
               </div>
@@ -341,29 +341,16 @@
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card mb-3 bg-success">
               <div class="card-header">
-                <h5 class="card-title text-white">Last Added Books</h5>
+                <h6 class="card-title text-white">Last Added Books</h6>
               </div>
-              <div class="card-body">
-                <table class="table table-borderless text-white">
+              <div class="card-body pt-0">
+                <table class="table table-borderless text-white text-10">
+                  @foreach($lastBooks as $book)
                   <tr>
-                    <td><b>TWILIGHT</b></td>
-                    <td>Stephenie Meyer</td>
+                    <td><b>{{$book->title}}</b></td>
+                    <td class="pull-right">{{$book->author}}</td>
                   </tr>
-                  <tr>
-                    <td><b>NEW MOON</b></td>
-                    <td>Stephenie Meyer</td>
-                  </tr>
-                  <tr>
-                    <td><b>ECLIPSE</b></td>
-                    <td>Stephenie Meyer</td>
-                  </tr>
-                  <tr>
-                    <td><b>BREAKING DAWN</b></td>
-                    <td>Stephenie Meyer</td>
-                  </tr>
-                  <tr>
-                    <td><b>MIDNIGHT SUN</b></td>
-                    <td>Stephenie Meyer</td>                  </tr>
+                  @endforeach
                 </table>
               </div>
             </div>
@@ -371,30 +358,16 @@
           <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card mb-3 bg-danger">
               <div class="card-header">
-                <h5 class="card-title text-white">Last Added Members</h5>
+                <h6 class="card-title text-white">Last Added Members</h6>
               </div>
-              <div class="card-body">
-                <table class="table table-borderless text-white">
+              <div class="card-body pt-0">
+                <table class="table table-borderless text-white text-10">
+                  @foreach($lastMembers as $member)
                   <tr>
-                    <td><b>HAKEEM POLISTICO</b></td>
-                    <td>09558874822</td>
+                    <td><b>{{$member->firstname}} {{$member->lastname}}</b></td>
+                    <td class="pull-right">{{$member->contact}}</td>
                   </tr>
-                  <tr>
-                    <td><b>HAKEEM POLISTICO</b></td>
-                    <td>09558874822</td>
-                  </tr>
-                  <tr>
-                    <td><b>HAKEEM POLISTICO</b></td>
-                    <td>09558874822</td>
-                  </tr>
-                  <tr>
-                    <td><b>HAKEEM POLISTICO</b></td>
-                    <td>09558874822</td>
-                  </tr>
-                  <tr>
-                    <td><b>HAKEEM POLISTICO</b></td>
-                    <td>09558874822</td>
-                  </tr>
+                  @endforeach
                 </table>
               </div>
             </div>

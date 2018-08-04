@@ -28,6 +28,9 @@
   .text-white{
     color: white !important;
   }
+  .text-10{
+    font-size: 10px;
+  }
 </style>
 <body class="">
   <div class="wrapper ">
