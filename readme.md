@@ -11,8 +11,8 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-[Composer](https://getcomposer.org/)
-[Xampp](https://www.apachefriends.org/) or [Wamp](www.wampserver.com/en/)
+Composer
+Xampp or Wamp
 ```
 
 ### Installing
