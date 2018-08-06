@@ -1,6 +1,6 @@
 # Rio's Library Management System
 
-This system is the requirement of FFUF Manila for the job application
+Rio has recently opened his new library, and he has just got his first set of books. He wants to be able to catalogue all books coming in and out of his library.
 
 ## Getting Started
 
