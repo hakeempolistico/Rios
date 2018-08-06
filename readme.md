@@ -12,8 +12,6 @@ What things you need to install the software and how to install them
 
 ```
 Composer
-```
-```
 Xampp
 ```
 
@@ -24,19 +22,13 @@ A step by step series of examples that tell you how to get a development env run
 ```
 Clone or download folder to C:\xampp\htdocs
 ```
-```
 Open any terminal and run command
-
+```
 composer install
 ```
-This will take a minute or so.
+This will take a minute or so. Then run command
 ```
-Run command
-
 php artisan key:generate
-```
-```
-Run command
 
 php artisan cache:clear
 ```
@@ -53,27 +45,25 @@ Go to C:\xampp\apache\conf\extra open file name "httpd-vhosts" and add this
     DocumentRoot "C:/xampp/htdocs/rios/public"
     ServerName rios.local
 </VirtualHost>
+```
 
+```
 Go to C:\Windows\System32\drivers\etc open and run as administrator file name "hosts" and add this 
-
 
 127.0.0.1       localhost
 127.0.0.1       rios.local
-
 ```
+Import database
 ```
-Import database from C:\xampp\htdocs\rios\schema\lms.sql
-
+C:\xampp\htdocs\rios\schema\lms.sql
 ```
 
 ### Authentication
 ```
 Go to browser url rios.local/
 
-Login
 USERNAME: admin@admin.com
 PASSWORD: admin123
-
 ```
 
 ## Built With
