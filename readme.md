@@ -22,7 +22,7 @@ A step by step series of examples that tell you how to get a development env run
 ```
 Clone or download folder to C:\xampp\htdocs and rename folder to "Rios"
 ```
-Open any terminal and run command
+Open any terminal. Go to folder and run command
 ```
 composer install
 ```
