@@ -15,7 +15,7 @@ Composer
 Xampp
 ```
 
-### Installing
+### Deployment
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -53,6 +53,8 @@ Go to C:\Windows\System32\drivers\etc open and run as administrator file name "h
 127.0.0.1       localhost
 127.0.0.1       rios.local
 ```
+Restart xampp or apache.
+
 Import database
 ```
 C:\xampp\htdocs\rios\schema\lms.sql
@@ -70,5 +72,6 @@ PASSWORD: admin123
 
 * [Laravel](https://laravel.com/) - The PHP framework used
 * [Bootstrap 4](https://getbootstrap.com/) - The front-End framework used
+* [jQuery](https://jquery.com/) - JavaScript library used.
 * [DataTables](https://rometools.github.io/rome/) - Table plug-in for jQuery.
 * [Select2](https://select2.org/) - Select plugin for jQuery.
