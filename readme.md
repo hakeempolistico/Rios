@@ -1,10 +1,10 @@
 # Rio's Library Management System
 
-One Paragraph of project description goes here
+This system is the requirement of FFUF Manila for the job application
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
@@ -12,30 +12,69 @@ What things you need to install the software and how to install them
 
 ```
 Composer
-Xampp or Wamp
+```
+```
+Xampp
 ```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+```
+Clone or download folder to C:\xampp\htdocs
+```
+```
+Open any terminal and run command
+
+composer install
+```
+This will take a minute or so.
+```
+Run command
+
+php artisan key:generate
+```
+```
+Run command
+
+php artisan cache:clear
+```
+Add a virtual host
+```
+Go to C:\xampp\apache\conf\extra open file name "httpd-vhosts" and add this 
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+    DocumentRoot "C:/xampp/htdocs/rios/public"
+    ServerName rios.local
+</VirtualHost>
+
+Go to C:\Windows\System32\drivers\etc open and run as administrator file name "hosts" and add this 
+
+
+127.0.0.1       localhost
+127.0.0.1       rios.local
 
 ```
-Give the example
+```
+Import database from C:\xampp\htdocs\rios\schema\lms.sql
+
 ```
 
-And repeat
+### Authentication
+```
+Go to browser url rios.local/
+
+Login
+USERNAME: admin@admin.com
+PASSWORD: admin123
 
 ```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
