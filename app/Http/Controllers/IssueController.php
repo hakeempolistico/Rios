@@ -55,6 +55,7 @@ class IssueController extends Controller
                 'members.lastname as lastname'
             )
             ->where('status', 'returned')
+            ->orderBy('updated_at', 'DESC')
             ->join('books', 'books.id', '=', 'issued_books.book_id')
             ->join('members', 'members.id', '=', 'issued_books.member_id')
             ->get()

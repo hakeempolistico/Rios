@@ -43,7 +43,6 @@
             <table class="table table-bordered table-striped" id="table">
                 <thead>
                   <tr>
-                      <th width="10%">Id</th>
                       <th>Book</th>
                       <th>Member</th>
                       <th>Date Issued</th>
@@ -53,7 +52,6 @@
                 <tbody>
                   @foreach($issues as $issue)
                     <tr>
-                      <td>{{$issue->id}}</td>
                       <td>{{$issue->book_title}}</td>
                       <td>{{$issue->firstname}} {{$issue->lastname}}</td>
                       <td>{{date('M d, Y - h:ia', strtotime($issue->created_at))}}</td>
