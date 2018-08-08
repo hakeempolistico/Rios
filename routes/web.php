@@ -49,3 +49,6 @@ Route::resource('members', 'MemberController')->middleware('auth');
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::auth();
+
+Route::resource('changepass', 'ChangePassController')->middleware('auth');
+Route::post('changepass/credentials', 'ChangePassController@postCredentials')->middleware('auth');
