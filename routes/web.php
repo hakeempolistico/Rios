@@ -47,7 +47,5 @@ Route::get('members/{id}/destroy', 'MemberController@destroy')->middleware('auth
 Route::post('/members/getInfo', 'MemberController@getInfo')->middleware('auth');
 Route::resource('members', 'MemberController')->middleware('auth');
 
-
-
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Route::auth();
