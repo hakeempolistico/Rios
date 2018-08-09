@@ -160,8 +160,6 @@
 <script src="/js/core/popper.min.js"></script>
 <script src="/js/core/bootstrap.min.js"></script>
 <script src="/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 <!-- jQuery -->
 <script src="//code.jquery.com/jquery.js"></script>
 <!-- DataTables -->
@@ -172,8 +170,6 @@
 <script src="/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
-<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-<script src="/demo/demo.js"></script>
 <script>
 
   $('#table').DataTable({"pageLength": 25});
@@ -187,11 +183,6 @@
     var id = $(this).closest('tr').children('td:first').text();
     $('.btn-confirm').attr("href", "/authors/"+id+"/destroy");
     console.log(id);
-  });
-
-  $(document).ready(function() {
-    // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-    demo.initChartsPages();
   });
 </script>
 
