@@ -203,107 +203,48 @@
               <center><img class="avatar border-gray rounded-circle" src="/img/user.png" width="30%"></center>
             </div>
             <div class="col-md-12" style="margin-bottom: 10px">
-              <center><h5 id="view-fullname" class="text-primary">Hakeem Joshua Polistico</h5></center>
+              <center><h5 id="view-fullname"></h5></center>
             </div>
             <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">ID</small>
-                {{Form::text('id', '25', [
-                  'id' => 'view-id',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">Sex</small>
-                {{Form::select('sex',  array('male' => 'Male', 'female' => 'Female'), '', [
-                  'id' => 'view-sex',
-                  'class' => 'form-control',
-                  'disabled'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">House Number</small>
-                {{Form::text('name', '', [
-                  'id' => 'view-housenumber',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">Street</small>
-                {{Form::text('name', '', [
-                  'id' => 'view-street',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">Barangay</small>
-                {{Form::text('name', '', [
-                  'id' => 'view-barangay',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">City</small>
-                {{Form::text('name', '', [
-                  'id' => 'view-city',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">Province</small>
-                {{Form::text('name', '', [
-                  'id' => 'view-province',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">Contact Number</small>
-                {{Form::text('name', '', [
-                  'id' => 'view-contact',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">Email</small>
-                {{Form::text('name', '', [
-                  'id' => 'view-email',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="form-group">
-                <small class="text-success">Note</small>
-                {{Form::textarea('name', '', [
-                  'id' => 'view-note',
-                  'class' => 'form-control',
-                  'readonly'
-                  ])}}
-              </div>
+          <table class="table">
+          	<tr>
+          		<td class="text-primary">Sex:</td>
+          		<td><div id="view-sex" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">House Number:</td>
+          		<td><div id="view-housenumber" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">Street:</td>
+          		<td><div id="view-street" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">Barangay:</td>
+          		<td><div id="view-barangay" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">City:</td>
+          		<td><div id="view-city" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">Province:</td>
+          		<td><div id="view-province" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">Contact Number:</td>
+          		<td><div id="view-contact" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">Email:</td>
+          		<td><div id="view-email" class="pull-right"></div></td>
+          	</tr>
+          	<tr>
+          		<td class="text-primary">Note:</td>
+          		<td><div id="view-note" class="pull-right"></div></td>
+          	</tr>
+          </table>
+            	
             </div>
           </div>
           <div class="row">
@@ -525,17 +466,17 @@
       },
       success: function(result){
         $('#view-fullname').text(result.firstname+' '+result.lastname)
-        $('#view-id').val(result.id)
-        $('#view-sex').val(result.sex)
-        $('#view-housenumber').val(result.house_number)
-        $('#view-street').val(result.street)
-        $('#view-city').val(result.city)
-        $('#view-barangay').val(result.barangay)
-        $('#view-province').val(result.province)
-        $('#view-contact').val(result.contact)
-        $('#view-email').val(result.email)
-        $('#view-note').val(result.note)
-        console.log(result)
+        $('#view-id').text(result.id)
+        $('#view-sex').text(result.sex)
+        $('#view-housenumber').text(result.house_number)
+        $('#view-street').text(result.street)
+        $('#view-city').text(result.city)
+        $('#view-barangay').text(result.barangay)
+        $('#view-province').text(result.province)
+        $('#view-contact').text(result.contact)
+        $('#view-email').text(result.email)
+        $('#view-note').text(result.note)
+        //console.log(result)
       }})
   });
   $('#table').on('click', '.btn-edit', function (e) {
@@ -565,7 +506,7 @@
         $('#edit-contact').val(result.contact)
         $('#edit-email').val(result.email)
         $('#edit-note').val(result.note)
-        console.log(result)
+        //console.log(result)
       }})
   });
 
