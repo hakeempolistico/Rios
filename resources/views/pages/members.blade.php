@@ -77,8 +77,13 @@
         <h5 class="card-title" style="margin: 0px;">ADD</h5>
       </div>
       <div class="card-body">
-        {!! Form::open(['action' => ['MemberController@store', null], 'method' => 'POST']) !!}
+        {!! Form::open(['action' => ['MemberController@store', null], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
           <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                {{Form::file('cover_image')}}
+              </div>
+            </div>
             <div class="col-md-12">
               <div class="form-group">
                 <small class="text-success">First Name*</small>
@@ -200,7 +205,7 @@
       <div class="card-body">
           <div class="row">
             <div class="col-md-12" style="margin-bottom: 10px">
-              <center><img class="avatar border-gray rounded-circle" src="/img/user.png" width="30%"></center>
+              <center><img id="view-image" class="avatar border-gray rounded-circle" src="/img/user.png" width="30%"></center>
             </div>
             <div class="col-md-12" style="margin-bottom: 10px">
               <center><h5 id="view-fullname"></h5></center>
@@ -257,6 +262,12 @@
   </div>
 </div>
 <!-- Edit Modal -->
+<style>
+  .form-group input[type=file]{
+    opacity: 1;
+    position: static;
+  }
+</style>
 <div class="modal fade" id="editModal">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
@@ -264,10 +275,15 @@
         <h5 class="card-title" style="margin: 0px;">EDIT</h5>
       </div>
       <div class="card-body">
-        {!! Form::open(['action' => ['MemberController@update', null], 'method' => 'PUT']) !!}
+        {!! Form::open(['action' => ['MemberController@update', null], 'method' => 'PUT', 'enctype' => 'multipart/form-data']) !!}
           <div class="row">
-            <div class="col-md-12" style="margin-bottom: 10px">
-              <center><img class="avatar border-gray rounded-circle" src="/img/user.png" width="30%"></center>
+            <div class="col-md-12"  style="margin-bottom: 10px">
+              <center><img id="edit-image" class="avatar border-gray rounded-circle" src="/img/user.png" width="30%"></center>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                {{Form::file('cover_image')}}
+              </div>
             </div>
             <div class="col-md-12">
               <div class="form-group">
@@ -476,6 +492,9 @@
         $('#view-contact').text(result.contact)
         $('#view-email').text(result.email)
         $('#view-note').text(result.note)
+        if(result.cover_image){
+          $('#view-image').attr('src','/storage/cover_images/'+result.cover_image)
+        }
         //console.log(result)
       }})
   });
@@ -506,6 +525,9 @@
         $('#edit-contact').val(result.contact)
         $('#edit-email').val(result.email)
         $('#edit-note').val(result.note)
+        if(result.cover_image){
+          $('#edit-image').attr('src','/storage/cover_images/'+result.cover_image)
+        }
         //console.log(result)
       }})
   });

@@ -45,7 +45,25 @@ class MemberController extends Controller
             'lastname' => 'required',
             'sex' => 'required',
             'contact' => 'required',
+            'cover_image' => 'image|nullable|max:1999|dimensions:ratio=1/1'
         ]);
+
+        //Handle File Upload
+        if($request->hasFile('cover_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.png';
+        }
 
         //Create Genre
         $member = new Member;
@@ -60,6 +78,7 @@ class MemberController extends Controller
         $member->province = $request->input('province');
         $member->email = $request->input('email');
         $member->note = $request->input('note');
+        $member->cover_image = $fileNameToStore;
         $member->save();
 
         return redirect('/members')->with('success', 'Member Created!');
@@ -101,7 +120,25 @@ class MemberController extends Controller
             'lastname' => 'required',
             'sex' => 'required',
             'contact' => 'required',
+            'cover_image' => 'image|nullable|max:1999|dimensions:ratio=1/1'
         ]);
+
+        //Handle File Upload
+        if($request->hasFile('cover_image')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just extension
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+        } else {
+            $fileNameToStore = 'noimage.png';
+        }
 
         //Update Books
         $member = Member::find($request->input('id'));
@@ -116,6 +153,7 @@ class MemberController extends Controller
         $member->province = $request->input('province');
         $member->email = $request->input('email');
         $member->note = $request->input('note');
+        $member->cover_image = $fileNameToStore;
         $member->save();
 
         return redirect('/members')->with('success', 'Member Updated!');   
