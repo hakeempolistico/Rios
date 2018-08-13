@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Member;
+use Illuminate\Support\Facades\Storage;
 
 class MemberController extends Controller
 {
@@ -166,7 +167,14 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        Member::destroy($id); 
+        $member = Member::find($id); 
+
+        if($member->cover_image != 'noimage.jpg'){
+            //Delete image
+            Storage::delete('public/cover_images/'.$member->cover_image);
+        }
+
+        $member->delete();
         return redirect('/members')->with('error', 'Member Deleted');
     }
 
