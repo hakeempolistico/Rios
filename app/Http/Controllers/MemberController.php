@@ -135,10 +135,7 @@ class MemberController extends Controller
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             // Upload Image
             $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-
-        } else {
-            $fileNameToStore = 'noimage.png';
-        }
+        } 
 
         //Update Books
         $member = Member::find($request->input('id'));
@@ -153,7 +150,9 @@ class MemberController extends Controller
         $member->province = $request->input('province');
         $member->email = $request->input('email');
         $member->note = $request->input('note');
-        $member->cover_image = $fileNameToStore;
+        if($request->hasFile('cover_image')){
+            $member->cover_image = $fileNameToStore;
+        } 
         $member->save();
 
         return redirect('/members')->with('success', 'Member Updated!');   
